@@ -5,4 +5,4 @@
 .gitattributes
 .travis.yml
 README.md
-docker-compose.yml
+docker-compose.*.yml

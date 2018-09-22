@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  mongo:
+    image: blackdark93/strapi-mongo:${STRAPI_VERSION?strapi-version}
+    build:
+      context: .
+      args:
+        STRAPI_VERSION: ${STRAPI_VERSION?strapi-version}
+        DATABASE_CLIENT: mongo
+
+  postgres:
+    image: strapi/strapi-postgres:${STRAPI_VERSION?strapi-version}
+    build:
+      context: .
+      args:
+        STRAPI_VERSION: ${STRAPI_VERSION?strapi-version}
+        DATABASE_CLIENT: postgres
+
+  mysql:
+    image: strapi/strapi-mysql:${STRAPI_VERSION?strapi-version}
+    build:
+      context: .
+      args:
+        STRAPI_VERSION: ${STRAPI_VERSION?strapi-version}
+        DATABASE_CLIENT: mysql
+
+  sqlite3:
+    image: strapi/strapi-sqlite3:${STRAPI_VERSION?strapi-version}
+    build:
+      context: .
+      args:
+        STRAPI_VERSION: ${STRAPI_VERSION?strapi-version}
+        DATABASE_CLIENT: sqlite3
+
+  redis:
+    image: strapi/strapi-redis:${STRAPI_VERSION?strapi-version}
+    build:
+      context: .
+      args:
+        STRAPI_VERSION: ${STRAPI_VERSION?strapi-version}
+        DATABASE_CLIENT: redis
